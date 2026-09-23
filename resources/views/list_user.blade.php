@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Daftar Pengguna</h1>
+<h1 class="mb-4">Daftar User</h1>
 
-<table>
-    <thead>
+<table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
         <tr>
             <th>ID</th>
             <th>Nama</th>
