@@ -17,6 +17,7 @@
                     <th style="width: 150px;">ID</th>
                     <th>Nama Mata Kuliah</th>
                     <th style="width: 100px;" class="text-center">SKS</th>
+                    <th style="width: 150px;" class="text-center">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +27,13 @@
                         <td title="{{ $mk->id }}">{{ Str::limit($mk->id, 8, '...') }}</td>
                         <td>{{ $mk->nama_mk }}</td>
                         <td class="text-center">{{ $mk->sks }}</td>
+                        <td>
+                            <a href="{{ route('matakuliah.edit', $mk->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            <form action="{{ route('matakuliah.destroy', $mk->id) }}" method="POST" style="display:inline-;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
+                            </form>
                     </tr>
                 @empty
                     <tr>
